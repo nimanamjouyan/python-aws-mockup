@@ -17,7 +17,7 @@ def main(
         None,
         title="List of private keys",
         description="Place one private key per field."
-        ),
+        )
 ):
     return {"instance_ids":create_instance(model, key_names)}
 
