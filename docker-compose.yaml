@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+    aws-monster:
+        build:
+            context: ./.
+            dockerfile: Dockerfile
+        image: nemo/aws-monster
+        container_name: aws-monster
+        ports:
+            - "8000:8000"
+        working_dir: /opt/working
+        volumes:
+            - ./:/opt/working
+        entrypoint: uvicorn api:app --reload --host 0.0.0.0 --port 8000
