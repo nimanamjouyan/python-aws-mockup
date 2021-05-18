@@ -1,2 +1,2 @@
 # python-aws-mockup
-Using Fastapi, pydantic and boto3 to make a quick automated way to launch ec2 instances.
+A dockerised Fastapi, pydantic and boto3 automated and quick solution to launch ec2 instances.
