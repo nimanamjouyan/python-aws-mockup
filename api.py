@@ -1,6 +1,7 @@
-import os
-from fastapi import FastAPI, Form, Depends, Query
 from typing import List
+
+from fastapi import Depends, FastAPI, Query
+
 from model import Model
 from modules import create_instance
 
@@ -13,13 +14,9 @@ with open("VERSION", "r") as f:
 @app.get("/main")
 def main(
     model: Model = Depends(),
-    key_names: List[str] = Query(
-        None,
-        title="List of private keys",
-        description="Place one private key per field."
-        )
+    key_names: List[str] = Query(None, title="List of private keys", description="Place one private key per field."),
 ):
-    return {"instance_ids":create_instance(model, key_names)}
+    return {"instance_ids": create_instance(model, key_names)}
 
 
 @app.get("/version")
