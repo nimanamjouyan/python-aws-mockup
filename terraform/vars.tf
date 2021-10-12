@@ -6,6 +6,10 @@ variable "AWS_REGION" {
 variable "AMI" {
     default = "ami-0567f647e75c7bc05"   # The AMI for the Ubuntu Server 20.04
 }
+
+variable "INSTANCE_TYPE" {
+    default = "t2.micro"   # The AMI for the Ubuntu Server 20.04
+}
 variable "PATH_TO_PRIVATE_KEY" {
     default = "nima_key"
 }
