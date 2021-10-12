@@ -1,9 +1,6 @@
 .DS_Store
 *.sav
-#*.png
-#*.jpg
-#*.jpeg
-#*.json
+*.tfvars
 *.h5
 *.hdf5
 *.npy
