@@ -148,5 +148,12 @@ dmypy.json
 #additional stuff
 DEBUG/extract_entities/*
 
-# Terraform tfvars file
-terraform/terraform.tfvars
+# Terraform files
+*.tfvars
+*.tfstate
+*.tfstate.backup
+
+# Making sure you will not accidently leave your public/private key here!!!
+*.pub
+*.ppk
+*.pem
