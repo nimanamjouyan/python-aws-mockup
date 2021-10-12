@@ -149,4 +149,4 @@ dmypy.json
 DEBUG/extract_entities/*
 
 # Terraform tfvars file
-scripts/terraform.tfvars
+terraform/terraform.tfvars
