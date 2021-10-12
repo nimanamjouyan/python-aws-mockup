@@ -1,6 +1,5 @@
 .DS_Store
 *.sav
-*.tfvars
 *.h5
 *.hdf5
 *.npy
@@ -148,3 +147,6 @@ dmypy.json
 
 #additional stuff
 DEBUG/extract_entities/*
+
+# Terraform tfvars file
+scripts/terraform.tfvars
