@@ -1,3 +1,4 @@
 fastapi==0.65.1
 uvicorn==0.13.4
 python-terraform==0.10.1
+python-multipart==0.0.5

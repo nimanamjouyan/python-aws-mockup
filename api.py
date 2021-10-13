@@ -1,10 +1,9 @@
 from typing import List
 
-from fastapi import Depends, FastAPI, Query
-
-from model import Model
-from modules import create_instance
-
+from fastapi import Depends, FastAPI, Query, UploadFile, File
+from python_terraform import *
+from modules import save_upload_file_tmp, save_file_tmp
+import json
 
 description = """
 FastApi meets Terraform 💪
@@ -19,10 +18,15 @@ app = FastAPI(
     docs_url="/"
     )
 
+t = Terraform()
 
-@app.get("/main", tags=["Main"])
-def main(
-    model: Model = Depends(),
-    key_names: List[str] = Query(None, title="List of private keys", description="Place one private key per field."),
-):
-    return {"instance_ids": create_instance(model, key_names)}
+@app.post("/main", tags=["Main"])
+async def main(file: UploadFile = File(...)):
+
+    print(dir(file.file))
+    print(file.file.__dict__)
+    # print(save_upload_file_tmp("/home/morph/mykey.pub"))
+    # data = json.load(file.file)
+    # print(data)
+    # print(save_upload_file_tmp(file))
+    # return {"instance_ids": create_instance(model, key_names)}
