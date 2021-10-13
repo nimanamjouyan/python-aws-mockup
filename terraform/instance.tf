@@ -7,5 +7,8 @@ resource "aws_instance" "my_instance" {
 
     # The security group
     vpc_security_group_ids = ["${aws_security_group.allow-ssh.id}"]
+
+    # User data
+    user_data = "${data.template_cloudinit_config.docker-cloudinit.rendered}"
   
 }
