@@ -17,3 +17,23 @@ variable "PATH_TO_PRIVATE_KEY" {
 variable "PATH_TO_PUBLIC_KEY" {
     default = "../mykey.pub"
 }
+
+variable "INSTANCES" {
+    default = [
+        {
+            "name" = "Nima"
+            "ami" = "ami-0567f647e75c7bc05" 
+            "region" = "ap-southeast-2"
+            "type" = "t2.micro"
+            "path_to_public_key" = "../mykey.pub"
+        },
+        {
+            "name" = "George"
+            "ami" = "ami-0567f647e75c7bc05" 
+            "region" = "ap-southeast-2"
+            "type" = "t2.micro"
+            "path_to_public_key" = "../mykey.pub"
+        }
+    ]
+  
+}

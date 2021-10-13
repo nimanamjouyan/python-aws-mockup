@@ -1,4 +1,6 @@
 resource "aws_key_pair" "mykey" {
-    key_name = "mykey"
-    public_key = "${file("${var.PATH_TO_PUBLIC_KEY}")}"
+    for_each = {for i in var.INSTANCES: i.name => i}
+    
+    key_name = each.value.name
+    public_key = "${file("${each.value.path_to_public_key}")}"
 }
