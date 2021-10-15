@@ -1,10 +1,18 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, SecretStr
 
 
-class Model(BaseModel):
-    ami_id: str = Field(..., title="The ami id of the instance")
-    aws_access_key_id: str = Field(..., title="The aws access key id")
-    aws_secret_access_key: str = Field(..., title="The aws secret key")
-    region_name: str = Field(..., title="The region name of the instance")
-    num_instances: int = Field(..., title="The number of the instances (not more than 5 at a time)", le=5)
-    instance_type: str = Field(default="t2.micro", title="The region name of the instance")
+class Secrets(BaseModel):
+    aws_access_key_id: SecretStr = Field(..., title="The aws access key id")
+    aws_secret_key_id: SecretStr = Field(..., title="The aws secret key")
+
+
+class InstanceParams(BaseModel):
+    ami_id: str = Field(
+        default="ami-0567f647e75c7bc05", title="The ami id of the instance"
+    )
+    region_name: str = Field(
+        default="ap-southeast-2", title="The region name of the instance"
+    )
+    instance_type: str = Field(
+        default="t2.micro", title="The region name of the instance"
+    )
